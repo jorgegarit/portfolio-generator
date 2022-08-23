@@ -68,6 +68,19 @@ const promptProject = portfolioData => {
   return inquirer.prompt([
     {
       type: 'input',
+      name: 'name',
+      message: 'Provide the name of the project',
+      validate: projectNameInput => {
+        if (projectNameInput) {
+          return true;
+        } else {
+          console.log("please enter a project name!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
       name: 'description',
       message: 'Provide a description of the project (Required)',
       validate: descriptionInput => {
